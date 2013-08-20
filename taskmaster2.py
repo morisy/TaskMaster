@@ -15,9 +15,6 @@ for user in userlist:
         data = {"x-api-user": user, "x-api-key": apikey}
         print "Compiled user and api key" + str(data)
         req = requests.put(baseurl, params=data)
-        print "Generated request:" + str(req)
-        print "Opened page"
-        print "Got response"
-        print response
+        print "Response:" + str(req)
     except:
         print "Ack!"
