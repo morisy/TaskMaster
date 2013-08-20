@@ -15,10 +15,11 @@ for user in userlist:
         data = {"x-api-user": user, "x-api-key": apikey}
         print "Compiled user and api key" + str(data)
         print baseurl
-        headers = {'content-type': 'application/json'}
+        headers = {'content-type': 'application/json', "x-api-user": user, "x-api-key": apikey}
         
-        r = requests.post(baseurl, data=json.dumps(data), headers=headers)
-        
+        r = requests.get(baseurl, headers=headers)
+        f = open('workfile', 'w')
+        f.write(r.text) 
         print "Response:" + r.text
     except:
         print "Ack!"
