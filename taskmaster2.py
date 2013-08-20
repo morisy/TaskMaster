@@ -14,7 +14,11 @@ for user in userlist:
         apikey = raw_input("What is this user's API Key?")
         data = {"x-api-user": user, "x-api-key": apikey}
         print "Compiled user and api key" + str(data)
-        req = requests.put(baseurl, params=data)
-        print "Response:" + str(req)
+        print baseurl
+        headers = {'content-type': 'application/json'}
+        
+        r = requests.post(baseurl, data=json.dumps(payload), headers=headers)
+        
+        print "Response:" + str(r)
     except:
         print "Ack!"
