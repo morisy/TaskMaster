@@ -17,8 +17,8 @@ for user in userlist:
         print baseurl
         headers = {'content-type': 'application/json'}
         
-        r = requests.post(baseurl, data=json.dumps(payload), headers=headers)
+        r = requests.post(baseurl, data=json.dumps(data), headers=headers)
         
-        print "Response:" + str(r)
+        print "Response:" + r.text
     except:
         print "Ack!"
