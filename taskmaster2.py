@@ -15,17 +15,17 @@ for user in members_file:
     print "Trying " + str(user['Name']) + "."
     token = user['token']
     apikey = user['key']
-    data = {"x-api-user": token, "x-api-key": apikey}
     headers = {'content-type': 'application/json', "x-api-user": token, "x-api-key": apikey}
     r = requests.get(baseurl, headers=headers)
     f = open('workfile', 'w')
-    f.write(r.text) 
-    print "Response:" + r.text
+#   f.write(r.text) 
     tasks = r.json()["tasks"]   
     keys = tasks.keys()        
+    todo = []
     for key in keys:
         if tasks[key]["type"] == "todo":
             if not tasks[key]["completed"]:
                 print tasks[key]["text"]
+                todo.append(tasks[key]["text"])
         f = open('tasks', 'w')
-        f.write(tasks)
+#        f.write(tasks)
