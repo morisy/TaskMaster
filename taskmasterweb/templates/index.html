@@ -1,0 +1,23 @@
+$def with (members_file)
+
+<html>
+    <head>
+        <title>MuckRock Bounty Board</title>
+        $for user in members_file:
+            <h1>$user["Name"]</h1>
+$#            $token = user['token']
+$#            $apikey = user['key]
+$#            $headers = {'content-type': 'application/json', "x-api-user": token, "x-api-key": apikey}
+$#            r = requests.get(baseurl, headers=header)
+$#            tasks = r.json()["tasks"]
+$#           keys = tasks.keys()
+$#            for key in keys:
+$#                if tasks[key]["completed"]:
+$#                   print tasks[key]["text"]
+$#                f = open('tasks', 'w') #}
+    </head>
+<body>
+
+
+</body>
+</html>
